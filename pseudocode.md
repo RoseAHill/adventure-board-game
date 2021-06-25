@@ -1,4 +1,4 @@
-# APtMtBG Pseudo-code
+# APtBG Pseudo-code
 
 ## Game Breakdown
 

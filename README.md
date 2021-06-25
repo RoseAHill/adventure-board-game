@@ -1,4 +1,4 @@
-# Adventure Party- The Musical- the Board Game
+# Adventure Party - the Board Game
 
 [Play live!](#adventure---the-musical---the-board-game)
 
