@@ -1,10 +1,3 @@
-/* Debug UI Button Elements */
-
-const debugStatusBtnEl = document.querySelector("#game-status")
-const debugSetupBtnEl = document.querySelector("#game-setup")
-const debugStartBtnEl = document.querySelector("#game-start")
-const debugResetBtnEl = document.querySelector("#game-reset")
-
 /* Debug Functions */
 
 let debugPlayers = ["Rose", "Matthew", "Chris", "Della", "Nick", "JD"]
@@ -12,13 +5,16 @@ let debugPlayers = ["Rose", "Matthew", "Chris", "Della", "Nick", "JD"]
 /* Setters */
 
 // Debugger: Fill player list with 6 players
-function debugSetPlayers(numPlayers) {
-  if (!numPlayers || numPlayers < 1 || numPlayers > 6) numPlayers = 6;
-  console.log(`Setting ${numPlayers} players to default names...`)
-  for (let i = 0; i < numPlayers; i++) {
-    addPlayer(debugPlayers[i])
+function debugFillPlayers(numPlayers) {
+  if (!numPlayers || numPlayers < 1 || numPlayers > 6) numPlayers = 6
+  if (!(numPlayers <= playerList.length)) {
+    numPlayers -= playerList.length
+    console.log(`Setting ${numPlayers} players to default names...`)
+    for (let i = 0; i < numPlayers; i++) {
+      addPlayer(debugPlayers[i])
+    }
+    debugPlayerData()
   }
-  debugPlayerData()
   return true
 }
 

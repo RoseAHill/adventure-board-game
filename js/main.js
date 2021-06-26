@@ -59,20 +59,23 @@ function resetGameVariables() {
 }
 
 // Adds players to player list
-function addPlayer(playerName) {
-  if (unusedColors.length > 0) {
-    let player = Object.assign({}, playerTemp)
-    player["pName"] = playerName
-    player["pColor"] = unusedColors.shift()
-    playerList.push(player)
-    console.log(`Created Player ${playerList.length} with data:`, player, "in player list:", playerList)
-  } else {
-    console.log("Cannot create another player, no more player slots.")
-  }
+function addPlayer(...playerNames) {
+  playerNames.forEach(playerName => {
+    if (unusedColors.length > 0) {
+      let player = Object.assign({}, playerTemp)
+      player["pName"] = playerName
+      player["pColor"] = unusedColors.shift()
+      playerList.push(player)
+      console.log(`Created Player ${playerList.length} with data:`, player, "in player list:", playerList)
+    } else {
+      console.log("Cannot create another player, no more player slots.")
+      return true
+    }
+  });
 }
 
 function gameSetup() {
-  debugSetPlayers()
+  
 }
 
 // Starts the game
