@@ -23,7 +23,7 @@ AtMtBG is a multiplayer hotseat board game.
     - Location: Optional events
       - Train Station: Can buy spaces with coins
       - Trading booth: Can buy coins with spaces
-    - Events: Mandatory events
+    - Surprises: Mandatory events
       - Shady Shopkeeper's Dicey Business: Hey kid, wanna buy some dice? Loose lots of coins, roll 2 more dice
       - Surprise Cruise Party: Go forward 6 spaces but loose coins
       - Birthday Party: Invite people to your party, you and everyone you invite gets put 3 squares ahead of you, and they all give you coins
