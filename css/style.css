@@ -1,0 +1,99 @@
+/* Default Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+
+
+html {
+  box-sizing: border-box;
+  height: 100vh;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+}
+
+:root {
+  /* Default Font Size, commonly equates to 10px */
+  font-size: 62.5%;
+  /* Theme Colors */
+  --color-black: #080708;
+  --color-white: #FBEFEE;
+  --color-grey: #827B7B;
+  --color-red: #8B1E3F;
+  --color-orange: #FB5607;
+  --color-yellow: #FFBE0B;
+  --color-green: #44AF69;
+  --color-blue: #3A86FF;
+  --color-purple: #8338EC;
+  --color-pink: #FF006E;
+  /* Theme Fonts */
+  --font-title: 'Roboto', sans-serif;
+  --font-body: 'Open Sans', sans-serif;
+}
+
+body {
+  background-color: var(--color-white);
+  color: var(--color-black);
+  font-family: var(--font-body);
+  height: 100vh;
+}
+
+main {
+  height: 100%;
+  width: 100%;
+}
+
+main > * {
+  padding: 2rem;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1.6fr 0.4fr;
+  gap: 25px 15px;
+  grid-template-areas:
+    "players events board"
+    "players title board";
+}
+
+.events {
+  /* background-color: var(--color-blue); */
+  text-align: center;
+  grid-area: events;
+}
+
+.title {
+  /* background-color: var(--color-pink); */
+  text-align: center;
+  margin: auto;
+  grid-area: title;
+}
+
+.players {
+  /* background-color: var(--color-orange); */
+  grid-area: players;
+}
+
+.board {
+  /* background-color: var(--color-purple); */
+  text-align: right;
+  grid-area: board;
+}
+
+.game-area {
+  border: 2px solid var(--color-black);
+}
+
+#turn-info {
+  margin: auto;
+  min-width: 40rem;
+}
+
+@media only screen and (min-width: 700px) {
+  body {
+    overflow: hidden;
+  }
+}
