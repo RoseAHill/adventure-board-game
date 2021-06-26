@@ -14,17 +14,19 @@ const playerTemp = {    // The player template, an object that gets
 
 /* Game Variables */
 
-let finishLine = 50     // The finish line square amount.
+let finishLine = 50     // The finish line square amount
+let maxRounds = 50      // The maximum amount of rounds to play
 let playerList = []     // The list of players
 
 let unusedColors = [...colorListTemp]   // List of unused colors
 
 /* Trackers */
 
+let currentRound = 0
 let currentPlayerIndex = 0
 let currentPlayer = null
 
-let currentTurnPhase = 0
+let currentTurnPhaseIndex = 0
 
 /* Render Functions */
 
@@ -69,13 +71,15 @@ function addPlayer(playerName) {
   }
 }
 
+function gameSetup() {
+  debugSetPlayers()
+}
+
 // Starts the game
-function startGame() {
+function gameStart() {
   currentPlayerIndex = 0
   currentPlayer = playerList[currentPlayerIndex]
-
 }
 
 /* Page Load */
 
-debugSetPlayers()

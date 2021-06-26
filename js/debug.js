@@ -1,3 +1,10 @@
+/* Debug UI Button Elements */
+
+const debugStatusBtnEl = document.querySelector("#game-status")
+const debugSetupBtnEl = document.querySelector("#game-setup")
+const debugStartBtnEl = document.querySelector("#game-start")
+const debugResetBtnEl = document.querySelector("#game-reset")
+
 /* Debug Functions */
 
 let debugPlayers = ["Rose", "Matthew", "Chris", "Della", "Nick", "JD"]
