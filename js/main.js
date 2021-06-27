@@ -63,8 +63,10 @@ function resetGameVariables() {
     console.log("Resetting game...");
     gameState = -1
     playerList = []
+    currentRound = 0
     unusedColors = [...colorListTemp]
     debugPlayerData()
+    disableGameControls()
   } else {
     console.log("Game is already reset");
   }

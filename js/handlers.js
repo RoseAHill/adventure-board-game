@@ -21,6 +21,13 @@ function enableGameControls() {
   } else { console.log(`Game controls already enabled`)}
 }
 
+function disableGameControls() {
+  if(!gameNextBtnEl.hasAttribute("disabled")) {
+    console.log(`Disabling game controls`)
+    gameNextBtnEl.setAttribute("disabled", "")
+  } else console.log(`Game controls already disabled`)
+}
+
 /* Game UI Button Handlers */
 
 function handleNextPhase() {
