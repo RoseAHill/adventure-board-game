@@ -52,7 +52,11 @@ function debugStartGame() {
   if (!playerList.length) {
     debugSetupGame(6)
   }
-  gameStart()
+  if (!gameState) {
+    console.log(`Game already started...`);
+  } else {
+    gameStart()
+  }
 }
 
 function debugResetGame() {

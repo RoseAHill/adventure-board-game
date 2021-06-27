@@ -15,7 +15,7 @@ const playerTemp = {    // The player template, an object that gets
 
 
 let finishLine = 50     // The finish line square amount
-let maxRounds = 50      // The maximum amount of rounds to play
+let maxRounds = 15      // The maximum amount of rounds to play
 let playerList = []     // The list of players
 
 let unusedColors = [...colorListTemp]   // List of unused colors
