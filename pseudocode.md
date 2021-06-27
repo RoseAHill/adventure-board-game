@@ -46,6 +46,7 @@ AtMtBG is a multiplayer hotseat board game.
 - Game Mechanics:
   - Lives
   - Items
+  - Dynamic board paths
 
 - Game Start:
   - User is shown their ability load-out

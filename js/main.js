@@ -1,6 +1,6 @@
 /* Game Constants & Templates */
 
-const turnPhases = ["confirm","move","event","resolve", "end"]
+const turnPhases = ["confirm","move","event","resolve"]
 
 // Template of the color list
 const colorListTemp = ["red", "green", "blue", "orange", "purple", "yellow"]
@@ -32,6 +32,10 @@ let currentTurnPhaseIndex = 0
 
 function renderCurrentWinner() {
   let currentWinner = getCurrentWinners()
+}
+
+function renderPhaseDescription() {
+
 }
 
 /* Functions */
@@ -74,6 +78,45 @@ function addPlayer(...playerNames) {
   });
 }
 
+function rollDice(numDice = 1, sides = 6) {
+  console.log(`Rolling ${numDice > 1 ? numDice : "a"} ${sides} sided ${numDice > 1 ? "dice" : "die"}`);
+  let rolls = []
+  for (let i = 0; i < numDice; i++) {
+    rolls.push(Math.floor(Math.random() * sides) + 1)
+  }
+  let sum = rolls.reduce((sum, roll) => sum + roll, 0)
+  console.log(`Results are in: ${rolls.join(" + ")} = ${sum}`)
+  rolls.unshift(sum)
+  return rolls
+}
+
+function startPhase() {
+  
+}
+// Shifts to next player,
+function nextPlayer() {
+  console.log("Next Player!");
+  if (currentPlayerIndex === playerList.length) {
+    currentPlayerIndex = 0
+  } else {
+    currentPlayerIndex++
+  }
+  currentPlayer = playerList[currentPlayerIndex]
+  currentTurnPhaseIndex = 0
+}
+
+
+// Shifts to next turn phase
+function nextPhase() {
+  if (currentTurnPhaseIndex === turnPhases.length) {
+    nextPlayer()
+  } else {
+    currentTurnPhaseIndex++
+  }
+  startPhase()
+}
+
+// Sets up game
 function gameSetup() {
   
 }
