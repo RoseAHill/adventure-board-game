@@ -15,7 +15,7 @@ const playerTemp = {    // The player template, an object that gets
 
 
 let finishLine = 50     // The finish line square amount
-let maxRounds = 15      // The maximum amount of rounds to play
+let maxRounds = 20      // The maximum amount of rounds to play
 let playerList = []     // The list of players
 
 let unusedColors = [...colorListTemp]   // List of unused colors
@@ -48,7 +48,7 @@ function getCurrentWinners() {
   let tempWinners = []
   playerList.forEach((player, index) => {
     if (player.pSquare > highestSquareValue) {
-      let highestSquareValue = player.pSquare
+      highestSquareValue = player.pSquare
       tempWinners = [index + 1]
     } else if (player.pSquare === highestSquareValue) {
       tempWinners.push(index + 1)
@@ -174,6 +174,7 @@ function gameStart() {
   }
 }
 
+// To be used in some events
 function passTurn(playerNum = 0) {
   if (!!gameState) {
     console.log("Game is not in progress. Start game to play.")

@@ -44,9 +44,12 @@ function debugPlayerData() {
 
 function debugCurrentWinner() {
   let tempWinners = getCurrentWinners()
+  console.log(tempWinners)
+  let tempWinnerNames = []
+  tempWinners.forEach(winnerNum => {tempWinnerNames.push(playerList[winnerNum - 1]["pName"])})
   if (tempWinners.length !== 0) console.log(`Currently there is ${tempWinners.length > 1 ? "a tie." : (tempWinners.length === 0 ? "no one winning" : "one person in the lead.")}`,
-              `Player ${tempWinners.join(", ")} `,
-              `${tempWinners.length > 1 ? "are all" : "is"} on square ${playerList[tempWinners[0]].pSquare}`)
+              `${tempWinnerNames.join(" and ")}`,
+              `${tempWinners.length > 1 ? "are all" : "is"} on square ${playerList[tempWinners[0] - 1]["pSquare"]}`)
   else console.log(`There are no players, nobody can win...`)
   return true
 }
