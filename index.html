@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="./css/style.css">
 	<script src="./js/debug.js"></script>
 	<script defer src="./js/phases.js"></script>
+	<script src="./js/board.js"></script>
 	<script defer src="./js/main.js"></script>
 	<script defer src="./js/handlers.js"></script>
   <title>Document</title>
@@ -48,11 +49,11 @@
 		</div>
 		<div class="events game-area">
 			<div id="turn-info">
-				<h2>Turn Phase</h2>
-				<h3 id="phase-title">Phase Title</h3>
+				<h2 id="players-turn">Someone's Turn</h2>
+				<h3 id="phase-title">Some Phase</h3>
 				<p id="phase-description"></p>
 			</div>
-			<button type="button" class="btn btn-primary">Next</button>
+			<button id="game-next" type="button" class="btn btn-primary" disabled>Continue</button>
 		</div>
 		<div class="title">
 			<h1>Adventure Party</h2>
@@ -64,6 +65,7 @@
 				<button id="game-setup" type="button" class="btn btn-warning">Setup Default Players</button>
 				<button id="game-start" type="button" class="btn btn-success">Start Game</button>
 				<button id="game-reset" type="button" class="btn btn-danger">Reset Game</button>
+				<button id="board-gen" type="button" class="btn btn-warning">Generate New Board</button>
 			</div>
 		</div>
 </main>

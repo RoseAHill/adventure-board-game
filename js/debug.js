@@ -6,6 +6,10 @@ let debugPlayers = ["Rose", "Matthew", "Chris", "Della", "Nick", "JD"]
 
 // Debugger: Fill player list with 6 players
 function debugFillPlayers(numPlayers) {
+  if (!gameState) {
+    console.log(`Game already in progress, cannot change players`);
+    return false
+  }
   if (!numPlayers || numPlayers < 1 || numPlayers > 6) numPlayers = 6
   if (!(numPlayers <= playerList.length)) {
     numPlayers -= playerList.length
@@ -14,6 +18,9 @@ function debugFillPlayers(numPlayers) {
       addPlayer(debugPlayers[i])
     }
     debugPlayerData()
+  } else {
+    console.log(`There are already ${playerList.length} players.`);
+    return false
   }
   return true
 }
@@ -42,4 +49,10 @@ function debugCurrentWinner() {
               `${tempWinners.length > 1 ? "are all" : "is"} on square ${playerList[tempWinners[0]].pSquare}`)
   else console.log(`There are no players, nobody can win...`)
   return true
+}
+
+function debugCurrentTurn() {
+  if (!gameState) {
+    console.log(`The current turn belongs to Player ${currentPlayerIndex + 1}, ${currentPlayer["pName"]}. We are on the ${turnPhases[currentTurnPhaseIndex]["phaseName"]} phase.`);
+  }
 }

@@ -1,7 +1,5 @@
 /* Game Constants & Templates */
 
-const turnPhases = ["confirm","move","event","resolve"]
-
 // Template of the color list
 const colorListTemp = ["red", "green", "blue", "orange", "purple", "yellow"]
 
@@ -9,16 +7,20 @@ const playerTemp = {    // The player template, an object that gets
   pName: "Player 0",    // copied to the player list
   pColor: null,
   pSquare: 0,
-  pCoins: 0
+  pCoins: 0,
+  isTurn: false
 }
 
 /* Game Variables */
+
 
 let finishLine = 50     // The finish line square amount
 let maxRounds = 50      // The maximum amount of rounds to play
 let playerList = []     // The list of players
 
 let unusedColors = [...colorListTemp]   // List of unused colors
+
+let gameState = -1
 
 /* Trackers */
 
@@ -34,7 +36,7 @@ function renderCurrentWinner() {
   let currentWinner = getCurrentWinners()
 }
 
-function renderPhaseDescription() {
+function renderPhase() {
 
 }
 
@@ -57,9 +59,15 @@ function getCurrentWinners() {
 
 // Resets Game Variables
 function resetGameVariables() {
-  playerList = []
-  unusedColors = [...colorListTemp]
-  debugPlayerData()
+  if (gameState != -1) {
+    console.log("Resetting game...");
+    gameState = -1
+    playerList = []
+    unusedColors = [...colorListTemp]
+    debugPlayerData()
+  } else {
+    console.log("Game is already reset");
+  }
 }
 
 // Adds players to player list
@@ -85,19 +93,24 @@ function rollDice(numDice = 1, sides = 6) {
     rolls.push(Math.floor(Math.random() * sides) + 1)
   }
   let sum = rolls.reduce((sum, roll) => sum + roll, 0)
-  console.log(`Results are in: ${rolls.join(" + ")} = ${sum}`)
+  if(numDice != 1) console.log(`Results are in: ${rolls.join(" + ")} = ${sum}`)
   rolls.unshift(sum)
   return rolls
 }
 
 function startPhase() {
-  
+  turnPhases[currentTurnPhaseIndex]["phaseAction"]()
 }
 // Shifts to next player,
 function nextPlayer() {
+  if (!!gameState) {
+    console.log("Game is not in progress. Start game to play.")
+    return false
+  }
   console.log("Next Player!");
-  if (currentPlayerIndex === playerList.length) {
+  if (currentPlayerIndex === playerList.length - 1) {
     currentPlayerIndex = 0
+    roundTracker()
   } else {
     currentPlayerIndex++
   }
@@ -108,24 +121,79 @@ function nextPlayer() {
 
 // Shifts to next turn phase
 function nextPhase() {
-  if (currentTurnPhaseIndex === turnPhases.length) {
+  if (!!gameState) {
+    console.log("Game is not in progress. Start game to play.")
+    return false
+  }
+  if (currentTurnPhaseIndex === turnPhases.length - 1) {
     nextPlayer()
+    console.log(`Moving on to ${currentPlayer["pName"]}'s turn`);
   } else {
     currentTurnPhaseIndex++
+    console.log(`Moving to ${turnPhases[currentTurnPhaseIndex]["phaseName"]} phase...`)
   }
   startPhase()
+  return true
+}
+
+function roundTracker() {
+  currentRound++
+  if (currentRound > maxRounds) {
+    console.log(`The game hit the max rounds! Determining winner...`);
+    toggleWinner()
+  } else if (currentRound === maxRounds) {
+    console.log(`Round ${currentRound}, start! It's the last round, so make it count!`);
+  } else {
+    console.log(`Round ${currentRound}, start!`);
+  }
 }
 
 // Sets up game
 function gameSetup() {
-  
+  if (gameState != -1) {
+    console.log("Game is already in progress.")
+    return false
+  }
+  genBoard()
+  return true
 }
 
 // Starts the game
 function gameStart() {
-  currentPlayerIndex = 0
-  currentPlayer = playerList[currentPlayerIndex]
+  if (!!gameState) {
+    console.log("Starting game...");
+    gameState = 0
+    currentPlayerIndex = 0
+    currentPlayer = playerList[currentPlayerIndex]
+    enableGameControls()
+    roundTracker()
+  } else {
+    console.log("Game has already started...");
+  }
+}
+
+function passTurn(playerNum = 0) {
+  if (!!gameState) {
+    console.log("Game is not in progress. Start game to play.")
+    return false
+  }
+  let playerIndex = --playerNum
+  if (playerIndex === -1) {
+    nextPlayer()
+  } else if(Math.abs(playerIndex) >= playerList.length) {
+    console.log(`${playerIndex} is an invalid player index. Passing to next player.`)
+    nextPlayer()
+  } else {
+    console.log(`Passing to player ${playerIndex}!`)
+    currentPlayer = playerList[playerIndex]
+    currentPlayerIndex = playerIndex
+  }
+}
+
+function toggleWinner() {
+  console.log(`There is a winner`);
 }
 
 /* Page Load */
 
+gameSetup()
