@@ -13,12 +13,9 @@ function phaseConfirm() {
 function phaseMove() {
   console.log(`Move phase activated`)
   let playerRoll = rollDice()
-  if (!(currentPlayer["pSquare"] + playerRoll[0] >= finishLine)) {
-    currentPlayer["pSquare"] += playerRoll[0]
-    console.log(`${currentPlayer["pName"]} moved forward ${playerRoll[0]} squares. They are at square ${currentPlayer["pSquare"]}`)
-  } else if (currentPlayer["pSquare"] + playerRoll[0] > finishLine) {
-    console.log(`You need to land exactly on the finish line to win! Unfortunately ${playerRoll[0]} is overshooting. You landed where you're standing...`);
-  } else {
+  currentPlayer["pSquare"] += playerRoll[0]
+  console.log(`${currentPlayer["pName"]} moved forward ${playerRoll[0]} squares. They are at square ${currentPlayer["pSquare"]}`)
+  if (currentPlayer["pSquare"] >= finishLine) {
     toggleWinner()
   }
 }

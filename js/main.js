@@ -14,7 +14,7 @@ const playerTemp = {    // The player template, an object that gets
 /* Game Variables */
 
 
-let finishLine = 50     // The finish line square amount
+let finishLine = 40     // The finish line square amount
 let maxRounds = 20      // The maximum amount of rounds to play
 let playerList = []     // The list of players
 
@@ -198,7 +198,7 @@ function passTurn(playerNum = 0) {
 }
 
 function toggleWinner() {
-  console.log(`There is a winner`);
+  console.log(`There is a winner`)
 }
 
 /* Page Load */
