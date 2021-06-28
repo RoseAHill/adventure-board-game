@@ -5,6 +5,8 @@ const gameNextBtnEl = document.querySelector("#game-next")
 
 /* Debug UI Button Elements */
 
+const debugToggleEl = document.querySelector("#d")
+
 const debugStatusBtnEl = document.querySelector("#game-status")
 const debugSetupBtnEl = document.querySelector("#game-setup")
 const debugStartBtnEl = document.querySelector("#game-start")
@@ -16,8 +18,10 @@ const debugBoardGenBtnEl = document.querySelector("#board-gen")
 
 function enableGameControls() {
   if(gameNextBtnEl.hasAttribute("disabled")) {
-    console.log(`Enabling game controls`)
-    gameNextBtnEl.removeAttribute("disabled")
+    console.log(`Enabling game controls in 3 seconds...`)
+    window.setTimeout(() => {
+      gameNextBtnEl.removeAttribute("disabled")
+    }, 3000)
   } else { console.log(`Game controls already enabled`)}
 }
 
@@ -28,14 +32,31 @@ function disableGameControls() {
   } else console.log(`Game controls already disabled`)
 }
 
+function pauseGameControls() {
+  if (!gameNextBtnEl.hasAttribute("disabled")) {
+    disableGameControls()
+    enableGameControls()
+  } else {
+    console.log(`Controls already disabled`);
+  }
+}
+
 /* Game UI Button Handlers */
 
 function handleNextPhase() {
   nextPhase()
+  if (!inDebugMode) {
+    pauseGameControls()
+  }
 }
 
 
 /* Debug UI Button Handlers */
+
+function debugToggle() {
+  inDebugMode = !inDebugMode
+  console.log(`Debug mode is ${inDebugMode ? "on": "off"}`);
+}
 
 function logGameStatus() {
   console.log("Logging game status...")
@@ -66,6 +87,8 @@ function debugResetGame() {
 /* Add Event Handlers */
 
 // Debug event handlers
+debugToggleEl.addEventListener("click", debugToggle)
+
 debugStatusBtnEl.addEventListener("click", logGameStatus)
 debugSetupBtnEl.addEventListener("click", () => {debugSetupGame(6)})
 debugStartBtnEl.addEventListener("click", debugStartGame)

@@ -24,21 +24,13 @@ let gameState = -1
 
 /* Trackers */
 
+let inDebugMode = false
+
 let currentRound = 0
 let currentPlayerIndex = 0
 let currentPlayer = null
 
 let currentTurnPhaseIndex = 0
-
-/* Render Functions */
-
-function renderCurrentWinner() {
-  let currentWinner = getCurrentWinners()
-}
-
-function renderPhase() {
-
-}
 
 /* Functions */
 
@@ -102,6 +94,7 @@ function rollDice(numDice = 1, sides = 6) {
 
 function startPhase() {
   turnPhases[currentTurnPhaseIndex]["phaseAction"]()
+  renderPhase()
 }
 // Shifts to next player,
 function nextPlayer() {
@@ -118,6 +111,7 @@ function nextPlayer() {
   }
   currentPlayer = playerList[currentPlayerIndex]
   currentTurnPhaseIndex = 0
+  return true
 }
 
 
@@ -169,6 +163,7 @@ function gameStart() {
     currentPlayer = playerList[currentPlayerIndex]
     enableGameControls()
     roundTracker()
+    renderPhase()
   } else {
     console.log("Game has already started...");
   }

@@ -1,9 +1,9 @@
 
 const turnPhases = [
-  {phaseName: "confirm", phaseAction: phaseConfirm, phaseDescription: "Are you ready? Roll!"},
-  {phaseName: "move", phaseAction: phaseMove, phaseDescription: "Confirm your movement."},
-  {phaseName: "event", phaseAction: phaseEvent, phaseDescription: "See the results of your actions..."},
-  {phaseName: "resolve", phaseAction: phaseResolve, phaseDescription: "End your turn..."}
+  {phaseName: "Confirm", phaseAction: phaseConfirm, phaseDescription: "Are you ready? Roll!"},
+  {phaseName: "Move", phaseAction: phaseMove, phaseDescription: "Confirm your movement."},
+  {phaseName: "Event", phaseAction: phaseEvent, phaseDescription: "See the results of your actions..."},
+  {phaseName: "Resolve", phaseAction: phaseResolve, phaseDescription: "End your turn..."}
 ]
 
 function phaseConfirm() {
