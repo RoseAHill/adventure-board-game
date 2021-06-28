@@ -8,12 +8,12 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<link rel="stylesheet" href="./css/style.css">
+	<script defer src="./js/render.js"></script>
 	<script src="./js/debug.js"></script>
 	<script defer src="./js/phases.js"></script>
 	<script src="./js/board.js"></script>
 	<script defer src="./js/main.js"></script>
 	<script defer src="./js/handlers.js"></script>
-	<script defer src="./js/render.js"></script>
 	<title>Document</title>
 </head>
 
@@ -23,28 +23,6 @@
 			<h2>Player Stats</h2>
 			<div id="player-info">
 				<div id="player1-info" class="player-info">
-					<h3>Player 1</h3>
-					<p>Squares: <span class="square-count"></span></p>
-					<p>Coins: <span class="square-count"></span></p>
-					<!-- <p>Lives: <span class="square-count"></span></p> -->
-				</div>
-				<div id="player2-info" class="player-info">
-					<h3>Player 2</h3>
-					<p>Squares: <span class="square-count"></span></p>
-					<p>Coins: <span class="square-count"></span></p>
-					<!-- <p>Lives: <span class="square-count"></span></p> -->
-				</div>
-				<div id="player3-info" class="player-info">
-					<h3>Player 3</h3>
-					<p>Squares: <span class="square-count"></span></p>
-					<p>Coins: <span class="square-count"></span></p>
-					<!-- <p>Lives: <span class="square-count"></span></p> -->
-				</div>
-				<div id="player4-info" class="player-info">
-					<h3>Player 4</h3>
-					<p>Squares: <span class="square-count"></span></p>
-					<p>Coins: <span class="square-count"></span></p>
-					<!-- <p>Lives: <span class="square-count"></span></p> -->
 				</div>
 			</div>
 		</div>
@@ -55,6 +33,8 @@
 				<p id="phase-description"></p>
 			</div>
 			<button id="game-next" type="button" class="btn btn-primary" disabled>Continue</button>
+			<button id="game-start" type="button" class="btn btn-success">Start Game</button>
+			<button id="game-reset" type="button" class="btn btn-danger">Reset Game</button>
 		</div>
 		<div class="title">
 			<h1>A<span id="d">d</span>venture Party</h2>
@@ -62,10 +42,10 @@
 		<div class="board game-area">
 			<h2>Board</h2>
 			<div id="debug-buttons">
-				<button id="game-status" type="button" class="btn btn-info">Game Status</button>
-				<button id="game-setup" type="button" class="btn btn-warning">Setup Default Players</button>
-				<button id="game-start" type="button" class="btn btn-success">Start Game</button>
-				<button id="game-reset" type="button" class="btn btn-danger">Reset Game</button>
+				<button id="game-debug-status" type="button" class="btn btn-info">Game Status</button>
+				<button id="game-debug-setup" type="button" class="btn btn-warning">Setup Default Players</button>
+				<button id="game-debug-start" type="button" class="btn btn-success">Start Game</button>
+				<button id="game-debug-reset" type="button" class="btn btn-danger">Reset Game</button>
 				<button id="board-gen" type="button" class="btn btn-warning">Generate New Board</button>
 			</div>
 		</div>

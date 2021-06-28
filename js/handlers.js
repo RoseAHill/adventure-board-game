@@ -1,20 +1,33 @@
 
 /* Game Controls */
 
+const gameStartBtnEl = document.querySelector("#game-start")
+const gameResetBtnEl = document.querySelector("#game-reset")
 const gameNextBtnEl = document.querySelector("#game-next")
 
 /* Debug UI Button Elements */
 
 const debugToggleEl = document.querySelector("#d")
 
-const debugStatusBtnEl = document.querySelector("#game-status")
-const debugSetupBtnEl = document.querySelector("#game-setup")
-const debugStartBtnEl = document.querySelector("#game-start")
-const debugResetBtnEl = document.querySelector("#game-reset")
+const debugStatusBtnEl = document.querySelector("#game-debug-status")
+const debugSetupBtnEl = document.querySelector("#game-debug-setup")
+const debugStartBtnEl = document.querySelector("#game-debug-start")
+const debugResetBtnEl = document.querySelector("#game-debug-reset")
 
 const debugBoardGenBtnEl = document.querySelector("#board-gen")
 
 /* Toggle Game Controls */
+function toggleStartResetBtn() {
+  if (gameState === -1) {
+    !gameResetBtnEl.hasAttribute("hidden") && gameResetBtnEl.setAttribute("hidden", "")
+    gameStartBtnEl.hasAttribute("hidden") && gameStartBtnEl.removeAttribute("hidden")
+  } else {
+    !gameStartBtnEl.hasAttribute("hidden") && gameStartBtnEl.setAttribute("hidden", "")
+  }
+  if (gameState === 1) {
+    gameResetBtnEl.hasAttribute("hidden") && gameResetBtnEl.removeAttribute("hidden")
+  }
+}
 
 function enableGameControls() {
   if(gameNextBtnEl.hasAttribute("disabled")) {
@@ -50,6 +63,15 @@ function handleNextPhase() {
   }
 }
 
+function startGameHandler() {
+  if (playerList.length < 3) {
+    console.log("Minimum of 3 players!!!")
+  } else if (gameState === -1) {
+    gameStart()
+  } else {
+    console.log("Can't start!")
+  }
+}
 
 /* Debug UI Button Handlers */
 

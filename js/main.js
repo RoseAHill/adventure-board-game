@@ -57,6 +57,7 @@ function resetGameVariables() {
     playerList = []
     currentRound = 0
     unusedColors = [...colorListTemp]
+    toggleStartResetBtn()
     debugPlayerData()
     disableGameControls()
   } else {
@@ -78,6 +79,7 @@ function addPlayer(...playerNames) {
       return true
     }
   });
+  renderPlayerStats()
 }
 
 function rollDice(numDice = 1, sides = 6) {
@@ -95,6 +97,7 @@ function rollDice(numDice = 1, sides = 6) {
 function startPhase() {
   turnPhases[currentTurnPhaseIndex]["phaseAction"]()
   renderPhase()
+  renderPlayerStats()
 }
 // Shifts to next player,
 function nextPlayer() {
@@ -151,6 +154,7 @@ function gameSetup() {
     return false
   }
   genBoard()
+  renderPlayerStats()
   return true
 }
 
@@ -161,6 +165,7 @@ function gameStart() {
     gameState = 0
     currentPlayerIndex = 0
     currentPlayer = playerList[currentPlayerIndex]
+    toggleStartResetBtn()
     enableGameControls()
     roundTracker()
     renderPhase()

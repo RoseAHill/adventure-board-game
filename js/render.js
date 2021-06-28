@@ -35,5 +35,7 @@ function renderPlayerStats() {
     let playerCoinEl = document.createElement('p')
     playerCoinEl.innerText = `Coins: ${player["pCoins"]}`
     playerDivEl.appendChild(playerCoinEl)
+
+    playerInfoEl.appendChild(playerDivEl)
   });
 }
