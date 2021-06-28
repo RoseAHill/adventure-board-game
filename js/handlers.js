@@ -63,7 +63,7 @@ function handleNextPhase() {
   }
 }
 
-function startGameHandler() {
+function handleStartGame() {
   if (playerList.length < 3) {
     console.log("Minimum of 3 players!!!")
   } else if (gameState === -1) {
@@ -71,6 +71,10 @@ function startGameHandler() {
   } else {
     console.log("Can't start!")
   }
+}
+
+function handleResetGame() {
+  resetGameVariables()
 }
 
 /* Debug UI Button Handlers */
@@ -102,10 +106,6 @@ function debugStartGame() {
   }
 }
 
-function debugResetGame() {
-  resetGameVariables()
-}
-
 /* Add Event Handlers */
 
 // Debug event handlers
@@ -114,8 +114,10 @@ debugToggleEl.addEventListener("click", debugToggle)
 debugStatusBtnEl.addEventListener("click", logGameStatus)
 debugSetupBtnEl.addEventListener("click", () => {debugSetupGame(6)})
 debugStartBtnEl.addEventListener("click", debugStartGame)
-debugResetBtnEl.addEventListener("click", debugResetGame)
+debugResetBtnEl.addEventListener("click", handleResetGame)
 debugBoardGenBtnEl.addEventListener("click", genBoard)
 
 // Game event Handlers
 gameNextBtnEl.addEventListener("click", handleNextPhase)
+gameStartBtnEl.addEventListener("click", handleStartGame)
+gameResetBtnEl.addEventListener("click", handleResetGame)

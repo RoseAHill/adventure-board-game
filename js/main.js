@@ -67,6 +67,9 @@ function resetGameVariables() {
 
 // Adds players to player list
 function addPlayer(...playerNames) {
+  if (playerNames.length > 6) {
+    playerNames = playerNames.slice(0,6)
+  }
   playerNames.forEach(playerName => {
     if (unusedColors.length > 0) {
       let player = Object.assign({}, playerTemp)
@@ -155,6 +158,7 @@ function gameSetup() {
   }
   genBoard()
   renderPlayerStats()
+  toggleStartResetBtn()
   return true
 }
 

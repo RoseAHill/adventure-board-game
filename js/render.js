@@ -15,6 +15,7 @@ function renderCurrentWinner() {
 function renderPhase() {
   turnPlayersTurnEl.innerText = `${currentPlayer["pName"]}'s turn!`
   turnPhaseTitleEl.innerText = `${turnPhases[currentTurnPhaseIndex]["phaseName"]} Phase`
+  turnPhaseDescriptionEl.innerText = `${turnPhases[currentTurnPhaseIndex]["phaseDescription"]}`
 }
 
 function renderPlayerStats() {
