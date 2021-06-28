@@ -40,6 +40,12 @@ body {
   height: 100vh;
 }
 
+header {
+  position: absolute;
+  font-size: 50vh;
+  margin: 0 auto;
+}
+
 main {
   height: 100%;
   width: 100%;

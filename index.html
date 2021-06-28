@@ -8,6 +8,7 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<link rel="stylesheet" href="./css/style.css">
+	<script src="./js/confetti.js"></script>
 	<script defer src="./js/render.js"></script>
 	<script src="./js/debug.js"></script>
 	<script defer src="./js/phases.js"></script>
@@ -18,12 +19,15 @@
 </head>
 
 <body>
+	<header id="winner-header" hidden>
+		<h2>WINNER WINNER WINNER</h2>
+		<h3 id="winner-names"></h3>
+	</header>
 	<main class="grid-container">
 		<div id="player-stats" class="players game-area">
 			<h2>Player Stats</h2>
 			<div id="player-info">
-				<div id="player1-info" class="player-info">
-				</div>
+				
 			</div>
 		</div>
 		<div class="events game-area">

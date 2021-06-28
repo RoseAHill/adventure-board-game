@@ -1,8 +1,10 @@
-/* UI element se0lectors */
+/* UI element selectors */
 
 const turnPlayersTurnEl = document.querySelector("#players-turn")
 const turnPhaseTitleEl = document.querySelector("#phase-title")
 const turnPhaseDescriptionEl = document.querySelector("#phase-description")
+
+const winnnerMessageEl = document.querySelector("#winner-header")
 
 const playerInfoEl = document.querySelector("#player-info")
 
@@ -10,6 +12,7 @@ const playerInfoEl = document.querySelector("#player-info")
 
 function renderCurrentWinner() {
   let currentWinner = getCurrentWinners()
+  console.log(`${currentWinner.join(" and ")} Won!`)
 }
 
 function renderPhase() {

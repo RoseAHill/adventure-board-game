@@ -11,8 +11,9 @@ const playerTemp = {    // The player template, an object that gets
   isTurn: false
 }
 
-/* Game Variables */
+const winFanfare = new Audio('https://www.myinstants.com/media/sounds/untitled_340.mp3')
 
+/* Game Variables */
 
 let finishLine = 40     // The finish line square amount
 let maxRounds = 20      // The maximum amount of rounds to play
@@ -198,6 +199,10 @@ function passTurn(playerNum = 0) {
 }
 
 function toggleWinner() {
+  confetti.start(4000)
+  winFanfare.play()
+  disableGameControls()
+  toggleStartResetBtn()
   console.log(`There is a winner`)
 }
 
