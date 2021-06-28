@@ -7,6 +7,9 @@ const gameNextBtnEl = document.querySelector("#game-next")
 
 const playerAddEl = document.querySelector("#player-add")
 
+const docBody = document.querySelector("body")
+const viewModeSwitch = document.querySelector("#mode-switch")
+
 /* Debug UI Button Elements */
 
 const debugToggleEl = document.querySelector("#d")
@@ -94,6 +97,11 @@ function handleAddPlayer() {
   }
 }
 
+function handleViewMode() {
+  docBody.className = viewLightMode ? "light-mode" : "dark-mode"
+  viewLightMode = !viewLightMode
+}
+
 /* Debug UI Button Handlers */
 
 function debugToggle() {
@@ -115,6 +123,7 @@ function logGameStatus() {
 function debugSetupGame(numPlayers = 6) {
   debugFillPlayers(numPlayers)
   debugSetupBtnEl.style.display = "none";
+  !playerAddEl.hasAttribute("hidden") && playerAddEl.setAttribute("hidden", "")
 }
 
 function debugStartGame() {
@@ -127,6 +136,7 @@ function debugStartGame() {
     gameStart()
   }
 }
+
 
 /* Add Event Handlers */
 
@@ -144,3 +154,5 @@ gameNextBtnEl.addEventListener("click", handleNextPhase)
 gameStartBtnEl.addEventListener("click", handleStartGame)
 gameResetBtnEl.addEventListener("click", handleResetGame)
 playerAddEl.addEventListener("click", handleAddPlayer)
+
+viewModeSwitch.addEventListener("click", handleViewMode)

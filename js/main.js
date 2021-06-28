@@ -33,6 +33,8 @@ let currentPlayer = null
 
 let currentTurnPhaseIndex = 0
 
+let viewLightMode = true
+
 /* Functions */
 
 // Gets Current Winner

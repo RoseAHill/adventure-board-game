@@ -33,9 +33,19 @@ html {
   --font-body: 'Open Sans', sans-serif;
 }
 
+.light-mode {
+  --theme-background: var(--color-white);
+  --theme-text: var(--color-black);
+}
+
+.dark-mode {
+  --theme-background: var(--color-black);
+  --theme-text: var(--color-white);
+}
+
 body {
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: var(--theme-background);
+  color: var(--theme-text);
   font-family: var(--font-body);
   height: 100vh;
   position: relative;
@@ -88,7 +98,7 @@ main > * {
 }
 
 .game-area {
-  border: 2px solid var(--color-black);
+  border: 2px solid var(--theme-text);
 }
 
 .debug-button {
@@ -99,6 +109,9 @@ main > * {
   min-width: 40rem;
 }
 
+#mode-switch {
+  width: 4rem;
+}
 
 @media only screen and (min-width: 700px) {
   body {

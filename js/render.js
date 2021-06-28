@@ -2,6 +2,7 @@
 
 const turnPlayersTurnEl = document.querySelector("#players-turn")
 const turnPhaseTitleEl = document.querySelector("#phase-title")
+const turnPhaseTextEl = document.querySelector("#phase-text")
 const turnPhaseDescriptionEl = document.querySelector("#phase-description")
 
 const winnerMessageEl = document.querySelector("#winner-header")
@@ -19,6 +20,13 @@ function renderPhase() {
   turnPlayersTurnEl.innerText = `${currentPlayer["pName"]}'s turn!`
   turnPhaseTitleEl.innerText = `${turnPhases[currentTurnPhaseIndex]["phaseTitle"] ? turnPhases[currentTurnPhaseIndex]["phaseTitle"] : ""}`
   turnPhaseDescriptionEl.innerText = `${turnPhases[currentTurnPhaseIndex]["phaseDescription"]}`
+}
+
+function renderPhaseText(...text) {
+  if (!turnPhaseTitleEl.innerText) {
+    turnPhaseTitleEl.innerText = text[0]
+  }
+  
 }
 
 function renderPlayerStats() {
