@@ -1,8 +1,8 @@
 const boardEffects = [
-  {sqName: "Green Space", sqColor: "green", sqWeight: 40, sqEffect: effectGreen},
-  {sqName: "Red Space", sqColor: "red", sqWeight: 30, sqEffect: effectRed},
-  {sqName: "Event", sqColor: "blue", sqWeight: 20, sqEffect: effectEvent},
-  {sqName: "Location", sqColor: "pink", sqWeight: 10, sqEffect: effectLocation}
+  {sqName: "Green Space", sqColor: "green", sqMessage: "You landed on a green space. Yay, coins!" , sqWeight: 40, sqEffect: effectGreen},
+  {sqName: "Red Space", sqColor: "red", sqMessage: "Oh boy, a red space...", sqWeight: 30, sqEffect: effectRed},
+  {sqName: "Event Space", sqColor: "blue", sqMessage: "What's this? An event? How exciting!", sqWeight: 20, sqEffect: effectEvent},
+  {sqName: "Location", sqColor: "pink", sqMessage: "A location space! Where will you end up?", sqWeight: 10, sqEffect: effectLocation}
 ]
 
 let gameBoard = []

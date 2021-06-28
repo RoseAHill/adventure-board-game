@@ -13,6 +13,7 @@ const playerInfoEl = document.querySelector("#player-info")
 
 function renderCurrentWinner() {
   let currentWinner = getCurrentWinners()
+  winnerMessageEl.innerText = `${currentWinner.join(" and ")} Won!`
   console.log(`${currentWinner.join(" and ")} Won!`)
 }
 
@@ -23,10 +24,16 @@ function renderPhase() {
 }
 
 function renderPhaseText(...text) {
-  if (!turnPhaseTitleEl.innerText) {
-    turnPhaseTitleEl.innerText = text[0]
-  }
   
+  if (!turnPhaseTitleEl.innerText) {
+    turnPhaseTitleEl.innerText = text.shift()
+  }
+  if (text.length) {
+    turnPhaseTextEl.innerText = ""
+    text.forEach(textLine => {
+      turnPhaseTextEl.innerText += `${textLine}\n`
+    });
+  }
 }
 
 function renderPlayerStats() {

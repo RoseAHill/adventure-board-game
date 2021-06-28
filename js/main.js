@@ -102,8 +102,8 @@ function rollDice(numDice = 1, sides = 6) {
 }
 
 function startPhase() {
-  turnPhases[currentTurnPhaseIndex]["phaseAction"]()
   renderPhase()
+  turnPhases[currentTurnPhaseIndex]["phaseAction"]()
   renderPlayerStats()
 }
 // Shifts to next player,
