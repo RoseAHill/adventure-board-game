@@ -18,8 +18,8 @@ const debugBoardGenBtnEl = document.querySelector("#board-gen")
 
 /* Toggle Game Controls */
 function toggleStartResetBtn() {
-  if (gameState === -1) {
-    !gameResetBtnEl.hasAttribute("hidden") && gameResetBtnEl.setAttribute("hidden", "")
+  !gameResetBtnEl.hasAttribute("hidden") && gameResetBtnEl.setAttribute("hidden", "")
+  if ( playerList.length > 2 && gameState === -1) {
     gameStartBtnEl.hasAttribute("hidden") && gameStartBtnEl.removeAttribute("hidden")
   } else {
     !gameStartBtnEl.hasAttribute("hidden") && gameStartBtnEl.setAttribute("hidden", "")
@@ -30,15 +30,21 @@ function toggleStartResetBtn() {
 }
 
 function enableGameControls() {
+  if (gameNextBtnEl.hasAttribute("hidden")) {
+    gameNextBtnEl.removeAttribute("hidden")
+  }
   if(gameNextBtnEl.hasAttribute("disabled")) {
     console.log(`Enabling game controls in 3 seconds...`)
     window.setTimeout(() => {
       gameNextBtnEl.removeAttribute("disabled")
-    }, 3000)
+    }, 2000)
   } else { console.log(`Game controls already enabled`)}
 }
 
 function disableGameControls() {
+  if (gameState === 0) {
+    gameNextBtnEl.setAttribute("hidden", "")
+  } 
   if(!gameNextBtnEl.hasAttribute("disabled")) {
     console.log(`Disabling game controls`)
     gameNextBtnEl.setAttribute("disabled", "")

@@ -38,12 +38,7 @@ body {
   color: var(--color-black);
   font-family: var(--font-body);
   height: 100vh;
-}
-
-header {
-  position: absolute;
-  font-size: 50vh;
-  margin: 0 auto;
+  position: relative;
 }
 
 main {
@@ -68,6 +63,9 @@ main > * {
 .events {
   /* background-color: var(--color-blue); */
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   grid-area: events;
 }
 
@@ -94,9 +92,9 @@ main > * {
 }
 
 #turn-info {
-  margin: auto;
   min-width: 40rem;
 }
+
 
 @media only screen and (min-width: 700px) {
   body {

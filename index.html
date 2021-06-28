@@ -19,26 +19,28 @@
 </head>
 
 <body>
-	<header id="winner-header" hidden>
-		<h2>WINNER WINNER WINNER</h2>
-		<h3 id="winner-names"></h3>
-	</header>
 	<main class="grid-container">
 		<div id="player-stats" class="players game-area">
 			<h2>Player Stats</h2>
 			<div id="player-info">
-				
 			</div>
 		</div>
 		<div class="events game-area">
 			<div id="turn-info">
-				<h2 id="players-turn">Start the Game!</h2>
+				<h2 id="players-turn">Add 3 to 6 players to play!</h2>
 				<h3 id="phase-title"></h3>
+				<p id="phase-text"></p>
 				<p id="phase-description"></p>
+				<div id="game-controls">
+					<button id="game-next" type="button" class="btn btn-primary" disabled hidden>Next</button>
+					<button id="game-start" type="button" class="btn btn-success">Start Game</button>
+					<button id="game-reset" type="button" class="btn btn-danger">Reset Game</button>
+				</div>
 			</div>
-			<button id="game-next" type="button" class="btn btn-primary" disabled>Continue</button>
-			<button id="game-start" type="button" class="btn btn-success">Start Game</button>
-			<button id="game-reset" type="button" class="btn btn-danger">Reset Game</button>
+			<div id="winner-header" hidden>
+				<h2>WINNER WINNER WINNER</h2>
+				<h3 id="winner-names"></h3>
+			</div>
 		</div>
 		<div class="title">
 			<h1>A<span id="d">d</span>venture Party</h2>

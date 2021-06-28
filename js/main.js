@@ -84,6 +84,7 @@ function addPlayer(...playerNames) {
     }
   });
   renderPlayerStats()
+  toggleStartResetBtn()
 }
 
 function rollDice(numDice = 1, sides = 6) {
