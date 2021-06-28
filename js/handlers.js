@@ -10,6 +10,7 @@ const playerAddEl = document.querySelector("#player-add")
 /* Debug UI Button Elements */
 
 const debugToggleEl = document.querySelector("#d")
+const debugButtonsElList = document.querySelectorAll(".debug-button")
 
 const debugStatusBtnEl = document.querySelector("#game-debug-status")
 const debugSetupBtnEl = document.querySelector("#game-debug-setup")
@@ -96,8 +97,12 @@ function handleAddPlayer() {
 /* Debug UI Button Handlers */
 
 function debugToggle() {
+  let toDisplay = inDebugMode ? "none" : "inherit"
   inDebugMode = !inDebugMode
   console.log(`Debug mode is ${inDebugMode ? "on": "off"}`);
+  for (let i = 0; i < debugButtonsElList.length; i++) {
+    debugButtonsElList[i].style.display = toDisplay;
+  }
 }
 
 function logGameStatus() {
@@ -109,6 +114,7 @@ function logGameStatus() {
 
 function debugSetupGame(numPlayers = 6) {
   debugFillPlayers(numPlayers)
+  debugSetupBtnEl.style.display = "none";
 }
 
 function debugStartGame() {

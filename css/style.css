@@ -91,6 +91,10 @@ main > * {
   border: 2px solid var(--color-black);
 }
 
+.debug-button {
+  display: none;
+}
+
 #turn-info {
   min-width: 40rem;
 }
