@@ -22,8 +22,10 @@
 	<main class="grid-container">
 		<div id="player-stats" class="players game-area">
 			<h2>Player Stats</h2>
+			<button id="player-add" type="button" class="btn btn-primary">Add Player</button>
 			<div id="player-info">
 			</div>
+			<button id="game-debug-setup" type="button" class="btn btn-warning debug-button">Fill With Default Players</button>
 		</div>
 		<div class="events game-area">
 			<div id="turn-info">
@@ -48,11 +50,10 @@
 		<div class="board game-area">
 			<h2>Board</h2>
 			<div id="debug-buttons">
-				<button id="game-debug-status" type="button" class="btn btn-info">Game Status</button>
-				<button id="game-debug-setup" type="button" class="btn btn-warning">Setup Default Players</button>
-				<button id="game-debug-start" type="button" class="btn btn-success">Start Game</button>
-				<button id="game-debug-reset" type="button" class="btn btn-danger">Reset Game</button>
-				<button id="board-gen" type="button" class="btn btn-warning">Generate New Board</button>
+				<button id="game-debug-status" type="button" class="btn btn-info debug-button">Game Status</button>
+				<button id="game-debug-start" type="button" class="btn btn-success debug-button">Start Game</button>
+				<button id="game-debug-reset" type="button" class="btn btn-danger" debug-button>Reset Game</button>
+				<button id="board-gen" type="button" class="btn btn-warning debug-button">Generate New Board</button>
 			</div>
 		</div>
 	</main>

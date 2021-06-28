@@ -5,6 +5,8 @@ const gameStartBtnEl = document.querySelector("#game-start")
 const gameResetBtnEl = document.querySelector("#game-reset")
 const gameNextBtnEl = document.querySelector("#game-next")
 
+const playerAddEl = document.querySelector("#player-add")
+
 /* Debug UI Button Elements */
 
 const debugToggleEl = document.querySelector("#d")
@@ -83,6 +85,14 @@ function handleResetGame() {
   resetGameVariables()
 }
 
+function handleAddPlayer() {
+  let newPlayerName = window.prompt("Enter new player name")
+  if (newPlayerName) addPlayer(newPlayerName)
+  if (playerList.length >= 6) {
+    !playerAddEl.hasAttribute("hidden") && playerAddEl.setAttribute("hidden", "")
+  }
+}
+
 /* Debug UI Button Handlers */
 
 function debugToggle() {
@@ -127,3 +137,4 @@ debugBoardGenBtnEl.addEventListener("click", genBoard)
 gameNextBtnEl.addEventListener("click", handleNextPhase)
 gameStartBtnEl.addEventListener("click", handleStartGame)
 gameResetBtnEl.addEventListener("click", handleResetGame)
+playerAddEl.addEventListener("click", handleAddPlayer)
