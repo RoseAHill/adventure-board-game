@@ -49,7 +49,9 @@
 			<img id="mode-switch" src="./assets/light-bulb.svg" alt="Lightbulb for light and dark mode">
 		</div>
 		<div class="board game-area">
-			<h2>Board</h2>
+			<h2 data-toggle="tooltip" data-placement="top" title="Test Tooltip">Board</h2>
+			<div id="board-visuals">
+			</div>
 			<div id="debug-buttons">
 				<button id="game-debug-status" type="button" class="btn btn-info debug-button">Game Status</button>
 				<button id="game-debug-start" type="button" class="btn btn-success debug-button">Start Game</button>
@@ -58,6 +60,7 @@
 			</div>
 		</div>
 	</main>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
 	</script>

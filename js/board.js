@@ -1,8 +1,16 @@
 const boardEffects = [
   {sqName: "Green Space", sqColor: "green", sqMessage: "You landed on a green space. Yay, coins!" , sqWeight: 40, sqEffect: effectGreen},
-  {sqName: "Red Space", sqColor: "red", sqMessage: "Oh boy, a red space...", sqWeight: 30, sqEffect: effectRed},
-  {sqName: "Event Space", sqColor: "blue", sqMessage: "What's this? An event? How exciting!", sqWeight: 20, sqEffect: effectEvent},
+  {sqName: "Purple Space", sqColor: "purple", sqMessage: "Oh boy, a purple space...", sqWeight: 30, sqEffect: effectRed},
+  {sqName: "Surprise Space", sqColor: "blue", sqMessage: "What's this? An surprise? How exciting!", sqWeight: 20, sqEffect: effectEvent},
   {sqName: "Location", sqColor: "pink", sqMessage: "A location space! Where will you end up?", sqWeight: 10, sqEffect: effectLocation}
+]
+
+const surpriseList = [
+  {surName: "Shady Shopkeeper's Dicey Business", surDescription: "Hey kid, wanna buy some dice?", surAction: surShadyShop}
+]
+
+const locationList = [
+  {locName: "Comedy Club", locDescription: "Test your latest jokes at the local comedy club's standup night!", locMessage: "Tell your best joke! Your friends may or may not approve, but the audience will judge you on their own. Impress them enough and you may win coins!", locDisplay: ""}
 ]
 
 let gameBoard = []
@@ -31,6 +39,7 @@ function genBoard() {
     gameBoard.push(squareType)
   }
   console.log(`The current board is: `, gameBoard)
+  renderBoard()
   return true
 }
 
@@ -61,5 +70,11 @@ function subCoins(numCoins, player) {
   if (player["pCoins"] < 0) player["pCoins"] = 0
 }
 
+// Location space handlers
 
 
+// Event space handlers
+
+function surShadyShop() {
+  
+}

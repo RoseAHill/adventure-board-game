@@ -106,6 +106,39 @@ main > * {
   display: none;
 }
 
+.board-space {
+  border: 2px solid var(--theme-text);
+  width: 2rem;
+  height: 2.3%;
+  margin-left: auto;
+}
+
+.board-color-green {
+  background-color: var(--color-green);
+}
+
+.board-color-purple {
+  background-color: var(--color-purple);
+  
+}
+
+.board-color-blue {
+  background-color: var(--color-blue);
+  
+}
+
+.board-color-pink {
+  background-color: var(--color-pink);
+  
+}
+
+#board-visuals {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  height: 90%;
+}
+
 #turn-info {
   min-width: 40rem;
 }

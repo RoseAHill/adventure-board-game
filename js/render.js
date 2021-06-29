@@ -9,6 +9,8 @@ const winnerMessageEl = document.querySelector("#winner-header")
 
 const playerInfoEl = document.querySelector("#player-info")
 
+const boardVisualsEl = document.querySelector("#board-visuals")
+
 /* Render Functions */
 
 function renderCurrentWinner() {
@@ -55,3 +57,15 @@ function renderPlayerStats() {
     playerInfoEl.appendChild(playerDivEl)
   });
 }
+
+// Board Render
+
+function renderBoard() {
+  gameBoard.forEach(space => {
+    let renderSquare = document.createElement('div')
+    renderSquare.className = `board-space board-color-${boardEffects[space].sqColor}`
+    boardVisualsEl.appendChild(renderSquare)
+  });
+  renderBoardNames()
+}
+
