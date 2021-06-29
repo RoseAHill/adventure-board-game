@@ -34,11 +34,14 @@ function phaseMove() {
 
 function phaseEvent() {
   console.log(`Event phase activated`)
-  renderPhaseText(`Head`, `Text`)
+  let currentEvent = boardEffects[gameBoard[currentPlayer.pSquare]]
+  let effectResult = currentEvent.sqEffect()
+  tempResults.push(`\n${currentPlayer.pName} ${effectResult}\n`)
+  renderPhaseText(`You ${effectResult}`)
 }
 
 function phaseResolve() {
   console.log(`Resolve phase activated`)
-  renderPhaseText(tempResults)
+  renderPhaseText(tempResults.shift(), tempResults.join("\n"))
   tempResults = []
 }

@@ -36,18 +36,20 @@ function genBoard() {
 
 function effectGreen() {
   addCoins(3, currentPlayer)
+  return `found 3 coins!`
 }
 
 function effectRed() {
   subCoins(3, currentPlayer)
+  return `lost 3 coins...`
 }
 
 function effectEvent() {
-  effectGreen() //Placeholder
+  return ` got effected by an event`
 }
 
 function effectLocation() {
-  effectGreen() //Placeholder
+  return ` landed in town`
 }
 
 function addCoins(numCoins, player) {
@@ -58,4 +60,6 @@ function subCoins(numCoins, player) {
   player["pCoins"] -= numCoins
   if (player["pCoins"] < 0) player["pCoins"] = 0
 }
+
+
 

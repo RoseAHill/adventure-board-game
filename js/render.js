@@ -24,15 +24,12 @@ function renderPhase() {
 }
 
 function renderPhaseText(...text) {
-  
+  turnPhaseTextEl.innerText = ""
   if (!turnPhaseTitleEl.innerText) {
     turnPhaseTitleEl.innerText = text.shift()
   }
   if (text.length) {
-    turnPhaseTextEl.innerText = ""
-    text.forEach(textLine => {
-      turnPhaseTextEl.innerText += `${textLine}\n`
-    });
+    turnPhaseTextEl.innerText += `${text[0]}\n`
   }
 }
 
