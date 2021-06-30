@@ -17,8 +17,11 @@ function phaseMove() {
   console.log(`Move phase activated`)
   let playerRoll = rollDice()
   let sumOfRoll = playerRoll.shift()
-  let currentBoardEffect = boardEffects[gameBoard[currentPlayer.pSquare]]
   currentPlayer["pSquare"] += sumOfRoll
+  let currentBoardEffect = boardEffects[gameBoard[currentPlayer.pSquare - 1]]
+  console.log("Board effect: ", currentBoardEffect)
+  console.log("Current Player: ", currentPlayer)
+  console.log("board effect num: ", gameBoard[currentPlayer.pSquare - 1])
   renderPhaseText(`You rolled a ${sumOfRoll}${(playerRoll.length > 1) ? `(${playerRoll.join(" + ")})`: "" }`,
                   `You move forward ${sumOfRoll} space${sumOfRoll > 1 ? "s" : ""}. You are now on square ${currentPlayer.pSquare}`,
                   `${currentBoardEffect.sqMessage}`)
@@ -34,7 +37,7 @@ function phaseMove() {
 
 function phaseEvent() {
   console.log(`Event phase activated`)
-  let currentEvent = boardEffects[gameBoard[currentPlayer.pSquare]]
+  let currentEvent = boardEffects[gameBoard[currentPlayer.pSquare - 1]]
   let effectResult = currentEvent.sqEffect()
   tempResults.push(`\n${currentPlayer.pName} ${effectResult}\n`)
   renderPhaseText(`You ${effectResult}`)

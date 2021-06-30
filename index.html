@@ -8,24 +8,14 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
 		integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 	<link rel="stylesheet" href="./css/style.css">
-	<script src="./js/confetti.js"></script>
-	<script defer src="./js/render.js"></script>
-	<script src="./js/debug.js"></script>
-	<script defer src="./js/phases.js"></script>
-	<script src="./js/board.js"></script>
-	<script defer src="./js/handlers.js"></script>
-	<script defer src="./js/main.js"></script>
 	<title>Adventure Boardgame!</title>
 </head>
 
 <body class="dark-mode">
 	<main class="grid-container">
-		<div id="player-stats" class="players game-area">
-			<h2>Player Stats</h2>
-			<button id="player-add" type="button" class="btn btn-primary">Add Player</button>
-			<div id="player-info">
-			</div>
-			<button id="game-debug-setup" type="button" class="btn btn-warning debug-button">Fill With Default Players</button>
+		<div class="title">
+			<h1>A<span id="d">d</span>venture Party</h2>
+				<img id="mode-switch" src="./assets/light-bulb.svg" alt="Lightbulb for light and dark mode">
 		</div>
 		<div class="events game-area">
 			<div id="turn-info">
@@ -44,9 +34,13 @@
 				<h3 id="winner-names"></h3>
 			</div>
 		</div>
-		<div class="title">
-			<h1>A<span id="d">d</span>venture Party</h2>
-			<img id="mode-switch" src="./assets/light-bulb.svg" alt="Lightbulb for light and dark mode">
+		<div id="player-stats" class="players game-area">
+			<h2>Player Stats</h2>
+			<button id="player-add" type="button" class="btn btn-primary">Add Player</button>
+			<div id="player-info">
+			</div>
+			<button id="game-debug-setup" type="button" class="btn btn-warning debug-button">Fill With Default
+				Players</button>
 		</div>
 		<div class="board game-area">
 			<h2 data-toggle="tooltip" data-placement="top" title="Test Tooltip">Board</h2>
@@ -54,16 +48,19 @@
 			</div>
 			<div id="debug-buttons">
 				<button id="game-debug-status" type="button" class="btn btn-info debug-button">Game Status</button>
-				<button id="game-debug-start" type="button" class="btn btn-success debug-button">Start Game</button>
-				<button id="game-debug-reset" type="button" class="btn btn-danger debug-button">Reset Game</button>
-				<button id="board-gen" type="button" class="btn btn-warning debug-button">Generate New Board</button>
 			</div>
 		</div>
 	</main>
-	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
 	</script>
+	<script src="./js/confetti.js"></script>
+	<script src="./js/render.js"></script>
+	<script src="./js/debug.js"></script>
+	<script src="./js/phases.js"></script>
+	<script src="./js/board.js"></script>
+	<script src="./js/handlers.js"></script>
+	<script src="./js/main.js"></script>
 </body>
 
 </html>

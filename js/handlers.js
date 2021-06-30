@@ -145,9 +145,6 @@ debugToggleEl.addEventListener("click", debugToggle)
 
 debugStatusBtnEl.addEventListener("click", logGameStatus)
 debugSetupBtnEl.addEventListener("click", () => {debugSetupGame(6)})
-debugStartBtnEl.addEventListener("click", debugStartGame)
-debugResetBtnEl.addEventListener("click", handleResetGame)
-debugBoardGenBtnEl.addEventListener("click", genBoard)
 
 // Game event Handlers
 gameNextBtnEl.addEventListener("click", handleNextPhase)

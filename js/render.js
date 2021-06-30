@@ -61,11 +61,23 @@ function renderPlayerStats() {
 // Board Render
 
 function renderBoard() {
-  gameBoard.forEach(space => {
+  gameBoard.forEach((space, index) => {
+    let squareBox = document.createElement('div')
     let renderSquare = document.createElement('div')
+    let boardNum = document.createElement('p')
+    squareBox.id = `board-space${index + 1}`
+    squareBox.className = `board-space-boxes`
     renderSquare.className = `board-space board-color-${boardEffects[space].sqColor}`
-    boardVisualsEl.appendChild(renderSquare)
+    boardNum.innerText = index + 1
+    renderSquare.appendChild(boardNum)
+    squareBox.appendChild(renderSquare)
+    boardVisualsEl.appendChild(squareBox)
   });
-  renderBoardNames()
+}
+
+function renderPlayersBoard() {
+  playerList.forEach(player => {
+    let playerSpaceEl = document.querySelector(`#board-space${player.pSquare}`)
+  });
 }
 

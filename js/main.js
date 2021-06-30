@@ -105,6 +105,7 @@ function startPhase() {
   renderPhase()
   turnPhases[currentTurnPhaseIndex]["phaseAction"]()
   renderPlayerStats()
+  renderPlayersBoard()
 }
 // Shifts to next player,
 function nextPlayer() {

@@ -1,7 +1,7 @@
 const boardEffects = [
-  {sqName: "Green Space", sqColor: "green", sqMessage: "You landed on a green space. Yay, coins!" , sqWeight: 40, sqEffect: effectGreen},
-  {sqName: "Purple Space", sqColor: "purple", sqMessage: "Oh boy, a purple space...", sqWeight: 30, sqEffect: effectRed},
-  {sqName: "Surprise Space", sqColor: "blue", sqMessage: "What's this? An surprise? How exciting!", sqWeight: 20, sqEffect: effectEvent},
+  {sqName: "Green Space", sqColor: "green", sqMessage: "You landed on a green space. Yay, coins!" , sqWeight: 60, sqEffect: effectGreen},
+  {sqName: "Purple Space", sqColor: "purple", sqMessage: "Oh boy, a purple space...", sqWeight: 10, sqEffect: effectRed},
+  {sqName: "Surprise", sqColor: "blue", sqMessage: "What's this? An surprise? How exciting!", sqWeight: 20, sqEffect: effectEvent},
   {sqName: "Location", sqColor: "pink", sqMessage: "A location space! Where will you end up?", sqWeight: 10, sqEffect: effectLocation}
 ]
 
@@ -72,6 +72,9 @@ function subCoins(numCoins, player) {
 
 // Location space handlers
 
+function locComedyClub() {
+
+}
 
 // Event space handlers
 
