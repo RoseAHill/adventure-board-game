@@ -6,6 +6,7 @@ const turnPhaseTextEl = document.querySelector("#phase-text")
 const turnPhaseDescriptionEl = document.querySelector("#phase-description")
 
 const winnerMessageEl = document.querySelector("#winner-header")
+const winnerNamesEl = document.querySelector("#winner-names")
 
 const playerInfoEl = document.querySelector("#player-info")
 
@@ -15,7 +16,8 @@ const boardVisualsEl = document.querySelector("#board-visuals")
 
 function renderCurrentWinner() {
   let currentWinner = getCurrentWinners()
-  winnerMessageEl.innerText = `${currentWinner.join(" and ")} Won!`
+  winnerNamesEl.innerText = `${currentWinner.join(" and ")} Won!`
+  winnerMessageEl.removeAttribute("hidden")
   console.log(`${currentWinner.join(" and ")} Won!`)
 }
 
@@ -80,4 +82,3 @@ function renderPlayersBoard() {
     let playerSpaceEl = document.querySelector(`#board-space${player.pSquare}`)
   });
 }
-

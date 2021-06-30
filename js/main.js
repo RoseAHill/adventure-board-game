@@ -3,8 +3,8 @@
 // Template of the color list
 const colorListTemp = ["red", "green", "blue", "orange", "purple", "yellow"]
 
-const playerTemp = {    // The player template, an object that gets
-  pName: "Player 0",    // copied to the player list
+const playerTemp = { // The player template, an object that gets
+  pName: "Player 0", // copied to the player list
   pColor: null,
   pSquare: 0,
   pCoins: 0,
@@ -15,11 +15,11 @@ const winFanfare = new Audio('https://www.myinstants.com/media/sounds/untitled_3
 
 /* Game Variables */
 
-let finishLine = 40     // The finish line square amount
-let maxRounds = 20      // The maximum amount of rounds to play
-let playerList = []     // The list of players
+let finishLine = 40 // The finish line square amount
+let maxRounds = 20 // The maximum amount of rounds to play
+let playerList = [] // The list of players
 
-let unusedColors = [...colorListTemp]   // List of unused colors
+let unusedColors = [...colorListTemp] // List of unused colors
 
 let gameState = -1
 
@@ -71,7 +71,7 @@ function resetGameVariables() {
 // Adds players to player list
 function addPlayer(...playerNames) {
   if (playerNames.length > 6) {
-    playerNames = playerNames.slice(0,6)
+    playerNames = playerNames.slice(0, 6)
   }
   playerNames.forEach(playerName => {
     if (unusedColors.length > 0) {
@@ -96,7 +96,7 @@ function rollDice(numDice = 1, sides = 6) {
     rolls.push(Math.floor(Math.random() * sides) + 1)
   }
   let sum = rolls.reduce((sum, roll) => sum + roll, 0)
-  if(numDice != 1) console.log(`Results are in: ${rolls.join(" + ")} = ${sum}`)
+  if (numDice != 1) console.log(`Results are in: ${rolls.join(" + ")} = ${sum}`)
   rolls.unshift(sum)
   return rolls
 }
@@ -192,7 +192,7 @@ function passTurn(playerNum = 0) {
   let playerIndex = --playerNum
   if (playerIndex === -1) {
     nextPlayer()
-  } else if(Math.abs(playerIndex) >= playerList.length) {
+  } else if (Math.abs(playerIndex) >= playerList.length) {
     console.log(`${playerIndex} is an invalid player index. Passing to next player.`)
     nextPlayer()
   } else {
@@ -205,6 +205,7 @@ function passTurn(playerNum = 0) {
 function toggleWinner() {
   confetti.start(4000)
   winFanfare.play()
+  renderPlayerStats()
   disableGameControls()
   toggleStartResetBtn()
   console.log(`There is a winner`)

@@ -1,17 +1,45 @@
-const boardEffects = [
-  {sqName: "Green Space", sqColor: "green", sqMessage: "You landed on a green space. Yay, coins!" , sqWeight: 60, sqEffect: effectGreen},
-  {sqName: "Purple Space", sqColor: "purple", sqMessage: "Oh boy, a purple space...", sqWeight: 10, sqEffect: effectRed},
-  {sqName: "Surprise", sqColor: "blue", sqMessage: "What's this? An surprise? How exciting!", sqWeight: 20, sqEffect: effectEvent},
-  {sqName: "Location", sqColor: "pink", sqMessage: "A location space! Where will you end up?", sqWeight: 10, sqEffect: effectLocation}
+const boardEffects = [{
+    sqName: "Green Space",
+    sqColor: "green",
+    sqMessage: "You landed on a green space. Yay, coins!",
+    sqWeight: 60,
+    sqEffect: effectGreen
+  },
+  {
+    sqName: "Purple Space",
+    sqColor: "purple",
+    sqMessage: "Oh boy, a purple space...",
+    sqWeight: 10,
+    sqEffect: effectRed
+  },
+  {
+    sqName: "Surprise",
+    sqColor: "blue",
+    sqMessage: "What's this? An surprise? How exciting!",
+    sqWeight: 20,
+    sqEffect: effectEvent
+  },
+  {
+    sqName: "Location",
+    sqColor: "pink",
+    sqMessage: "A location space! Where will you end up?",
+    sqWeight: 10,
+    sqEffect: effectLocation
+  }
 ]
 
-const surpriseList = [
-  {surName: "Shady Shopkeeper's Dicey Business", surDescription: "Hey kid, wanna buy some dice?", surAction: surShadyShop}
-]
+const surpriseList = [{
+  surName: "Shady Shopkeeper's Dicey Business",
+  surDescription: "Hey kid, wanna buy some dice?",
+  surAction: surShadyShop
+}]
 
-const locationList = [
-  {locName: "Comedy Club", locDescription: "Test your latest jokes at the local comedy club's standup night!", locMessage: "Tell your best joke! Your friends may or may not approve, but the audience will judge you on their own. Impress them enough and you may win coins!", locDisplay: ""}
-]
+const locationList = [{
+  locName: "Comedy Club",
+  locDescription: "Test your latest jokes at the local comedy club's standup night!",
+  locMessage: "Tell your best joke! Your friends may or may not approve, but the audience will judge you on their own. Impress them enough and you may win coins!",
+  locDisplay: ""
+}]
 
 let gameBoard = []
 
@@ -79,5 +107,5 @@ function locComedyClub() {
 // Event space handlers
 
 function surShadyShop() {
-  
+
 }

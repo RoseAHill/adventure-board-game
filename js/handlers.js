@@ -1,4 +1,3 @@
-
 /* Game Controls */
 
 const gameStartBtnEl = document.querySelector("#game-start")
@@ -25,7 +24,7 @@ const debugBoardGenBtnEl = document.querySelector("#board-gen")
 /* Toggle Game Controls */
 function toggleStartResetBtn() {
   !gameResetBtnEl.hasAttribute("hidden") && gameResetBtnEl.setAttribute("hidden", "")
-  if ( playerList.length > 2 && gameState === -1) {
+  if (playerList.length > 2 && gameState === -1) {
     gameStartBtnEl.hasAttribute("hidden") && gameStartBtnEl.removeAttribute("hidden")
   } else {
     !gameStartBtnEl.hasAttribute("hidden") && gameStartBtnEl.setAttribute("hidden", "")
@@ -39,19 +38,21 @@ function enableGameControls() {
   if (gameNextBtnEl.hasAttribute("hidden")) {
     gameNextBtnEl.removeAttribute("hidden")
   }
-  if(gameNextBtnEl.hasAttribute("disabled")) {
+  if (gameNextBtnEl.hasAttribute("disabled")) {
     console.log(`Enabling game controls in 3 seconds...`)
     window.setTimeout(() => {
       gameNextBtnEl.removeAttribute("disabled")
     }, 2000)
-  } else { console.log(`Game controls already enabled`)}
+  } else {
+    console.log(`Game controls already enabled`)
+  }
 }
 
 function disableGameControls() {
   if (gameState === 0) {
     gameNextBtnEl.setAttribute("hidden", "")
-  } 
-  if(!gameNextBtnEl.hasAttribute("disabled")) {
+  }
+  if (!gameNextBtnEl.hasAttribute("disabled")) {
     console.log(`Disabling game controls`)
     gameNextBtnEl.setAttribute("disabled", "")
   } else console.log(`Game controls already disabled`)
@@ -144,7 +145,9 @@ function debugStartGame() {
 debugToggleEl.addEventListener("click", debugToggle)
 
 debugStatusBtnEl.addEventListener("click", logGameStatus)
-debugSetupBtnEl.addEventListener("click", () => {debugSetupGame(6)})
+debugSetupBtnEl.addEventListener("click", () => {
+  debugSetupGame(6)
+})
 
 // Game event Handlers
 gameNextBtnEl.addEventListener("click", handleNextPhase)
