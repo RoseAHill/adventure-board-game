@@ -99,10 +99,10 @@ p {
 
 .board-space {
   border: 2px solid var(--theme-text);
-  width: 2rem;
+  width: 4rem;
   height: 100%;
-  margin-left: auto;
-  font-size: 1rem;
+  margin: auto;
+  font-size: 2rem;
 }
 
 .board-color-green {
