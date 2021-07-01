@@ -39,3 +39,5 @@ A board game based on the concept of Mario Party and [Board Game Online](https:/
   - Tornado: Everyone swaps places on the board
 - Allowing the user to change the amount of spaces on the board
 - Allowing the user to reach a max round
+- Add inventory system with items
+- Add abilities per player
