@@ -60,6 +60,7 @@ function resetGameVariables() {
     playerList = []
     currentRound = 0
     unusedColors = [...colorListTemp]
+    turnInfoEl.style.display = "inherit"
     toggleStartResetBtn()
     debugPlayerData()
     disableGameControls()
@@ -147,7 +148,7 @@ function roundTracker() {
   currentRound++
   if (currentRound > maxRounds) {
     console.log(`The game hit the max rounds! Determining winner...`);
-    toggleWinner()
+    toggleWinner(true)
   } else if (currentRound === maxRounds) {
     console.log(`Round ${currentRound}, start! It's the last round, so make it count!`);
   } else {
@@ -202,12 +203,13 @@ function passTurn(playerNum = 0) {
   }
 }
 
-function toggleWinner() {
+function toggleWinner(isRoundLimit = false) {
   confetti.start(4000)
   winFanfare.play()
   renderPlayerStats()
   disableGameControls()
   toggleStartResetBtn()
+  renderCurrentWinner(isRoundLimit)
   console.log(`There is a winner`)
 }
 

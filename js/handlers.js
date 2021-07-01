@@ -12,12 +12,7 @@ const viewModeSwitch = document.querySelector("#mode-switch")
 /* Debug UI Button Elements */
 
 const debugToggleEl = document.querySelector("#d")
-const debugButtonsElList = document.querySelectorAll(".debug-button")
-
-const debugStatusBtnEl = document.querySelector("#game-debug-status")
 const debugSetupBtnEl = document.querySelector("#game-debug-setup")
-const debugStartBtnEl = document.querySelector("#game-debug-start")
-const debugResetBtnEl = document.querySelector("#game-debug-reset")
 
 const debugBoardGenBtnEl = document.querySelector("#board-gen")
 
@@ -109,9 +104,7 @@ function debugToggle() {
   let toDisplay = inDebugMode ? "none" : "inherit"
   inDebugMode = !inDebugMode
   console.log(`Debug mode is ${inDebugMode ? "on": "off"}`);
-  for (let i = 0; i < debugButtonsElList.length; i++) {
-    debugButtonsElList[i].style.display = toDisplay;
-  }
+  debugSetupBtnEl.style.display = toDisplay;
 }
 
 function logGameStatus() {
@@ -144,7 +137,6 @@ function debugStartGame() {
 // Debug event handlers
 debugToggleEl.addEventListener("click", debugToggle)
 
-debugStatusBtnEl.addEventListener("click", logGameStatus)
 debugSetupBtnEl.addEventListener("click", () => {
   debugSetupGame(6)
 })

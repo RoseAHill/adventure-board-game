@@ -5,20 +5,29 @@ const turnPhaseTitleEl = document.querySelector("#phase-title")
 const turnPhaseTextEl = document.querySelector("#phase-text")
 const turnPhaseDescriptionEl = document.querySelector("#phase-description")
 
+const winnerTitleEl = document.querySelector("#winner-title")
 const winnerMessageEl = document.querySelector("#winner-header")
 const winnerNamesEl = document.querySelector("#winner-names")
 
 const playerInfoEl = document.querySelector("#player-info")
 
+const turnInfoEl = document.querySelector("#turn-info")
+
 const boardVisualsEl = document.querySelector("#board-visuals")
 
 /* Render Functions */
 
-function renderCurrentWinner() {
+function renderCurrentWinner(isRoundLimit = false) {
   let currentWinner = getCurrentWinners()
-  winnerNamesEl.innerText = `${currentWinner.join(" and ")} Won!`
+  let currentWinnerNames = currentWinner.map(playerNum => playerList[playerNum - 1].pName)
+  turnInfoEl.style.display = "none"
+  if (isRoundLimit) {
+    winnerTitleEl.innerText = "Round 20 ended..."
+    winnerTitleEl.innerText += "\nWinner is whoever was ahead"
+  }
+  winnerNamesEl.innerText = `${currentWinnerNames.join(" and ")} won!`
   winnerMessageEl.removeAttribute("hidden")
-  console.log(`${currentWinner.join(" and ")} Won!`)
+  console.log(`${currentWinnerNames.join(" and ")} won!`)
 }
 
 function renderPhase() {
