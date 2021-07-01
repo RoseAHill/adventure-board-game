@@ -18,6 +18,12 @@ A board game based on the concept of Mario Party and [Board Game Online](https:/
    4. Magenta means you land in town.
 5. Whoever gets to the finish line first wins
 
+## Screenshots
+
+Light Mode | Dark Mode
+---------- | ---------
+![Light Mode Preview](https://imgur.com/GrVrCS6.png) | ![Dark mode preview](https://imgur.com/J3tp18v.png)
+
 ## Technologies Used
 
 - HTML
