@@ -34,12 +34,12 @@ function enableGameControls() {
     gameNextBtnEl.removeAttribute("hidden")
   }
   if (gameNextBtnEl.hasAttribute("disabled")) {
-    console.log(`Enabling game controls in 3 seconds...`)
+    inDebugMode && console.log(`Enabling game controls in 3 seconds...`)
     window.setTimeout(() => {
       gameNextBtnEl.removeAttribute("disabled")
     }, 2000)
   } else {
-    console.log(`Game controls already enabled`)
+    inDebugMode && console.log(`Game controls already enabled`)
   }
 }
 
@@ -48,9 +48,9 @@ function disableGameControls() {
     gameNextBtnEl.setAttribute("hidden", "")
   }
   if (!gameNextBtnEl.hasAttribute("disabled")) {
-    console.log(`Disabling game controls`)
+    inDebugMode && console.log(`Disabling game controls`)
     gameNextBtnEl.setAttribute("disabled", "")
-  } else console.log(`Game controls already disabled`)
+  } else inDebugMode && console.log(`Game controls already disabled`)
 }
 
 function pauseGameControls() {
@@ -58,7 +58,7 @@ function pauseGameControls() {
     disableGameControls()
     enableGameControls()
   } else {
-    console.log(`Controls already disabled`);
+    inDebugMode && console.log(`Controls already disabled`);
   }
 }
 
@@ -73,11 +73,11 @@ function handleNextPhase() {
 
 function handleStartGame() {
   if (playerList.length < 3) {
-    console.log("Minimum of 3 players!!!")
+    inDebugMode && console.log("Minimum of 3 players!!!")
   } else if (gameState === -1) {
     gameStart()
   } else {
-    console.log("Can't start!")
+    inDebugMode && console.log("Can't start!")
   }
 }
 
@@ -125,7 +125,7 @@ function debugStartGame() {
     debugSetupGame(6)
   }
   if (!gameState) {
-    console.log(`Game already started...`);
+    inDebugMode && console.log(`Game already started...`);
   } else {
     gameStart()
   }

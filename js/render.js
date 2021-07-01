@@ -27,7 +27,7 @@ function renderCurrentWinner(isRoundLimit = false) {
   }
   winnerNamesEl.innerText = `${currentWinnerNames.join(" and ")} won!`
   winnerMessageEl.removeAttribute("hidden")
-  console.log(`${currentWinnerNames.join(" and ")} won!`)
+  inDebugMode && console.log(`${currentWinnerNames.join(" and ")} won!`)
 }
 
 function renderPhase() {
@@ -83,11 +83,5 @@ function renderBoard() {
     renderSquare.appendChild(boardNum)
     squareBox.appendChild(renderSquare)
     boardVisualsEl.appendChild(squareBox)
-  });
-}
-
-function renderPlayersBoard() {
-  playerList.forEach(player => {
-    let playerSpaceEl = document.querySelector(`#board-space${player.pSquare}`)
   });
 }

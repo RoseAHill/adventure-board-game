@@ -30,8 +30,7 @@ const boardEffects = [{
 
 const surpriseList = [{
   surName: "Shady Shopkeeper's Dicey Business",
-  surDescription: "Hey kid, wanna buy some dice?",
-  surAction: surShadyShop
+  surDescription: "Hey kid, wanna buy some dice?"
 }]
 
 const locationList = [{
@@ -66,7 +65,6 @@ function genBoard() {
     });
     gameBoard.push(squareType)
   }
-  console.log(`The current board is: `, gameBoard)
   renderBoard()
   return true
 }
@@ -96,16 +94,4 @@ function addCoins(numCoins, player) {
 function subCoins(numCoins, player) {
   player["pCoins"] -= numCoins
   if (player["pCoins"] < 0) player["pCoins"] = 0
-}
-
-// Location space handlers
-
-function locComedyClub() {
-
-}
-
-// Event space handlers
-
-function surShadyShop() {
-
 }

@@ -27,12 +27,12 @@ const turnPhases = [{
 let tempResults = []
 
 function phaseConfirm() {
-  console.log(`Confirm phase activated`)
+  inDebugMode && console.log(`Confirm phase activated`)
   renderPhaseText(`Make sure ${currentPlayer.pName} is here!`)
 }
 
 function phaseMove() {
-  console.log(`Move phase activated`)
+  inDebugMode && console.log(`Move phase activated`)
   let playerRoll = rollDice()
   let sumOfRoll = playerRoll.shift()
   currentPlayer["pSquare"] += sumOfRoll
@@ -44,20 +44,20 @@ function phaseMove() {
   }
 
   let currentBoardEffect = boardEffects[gameBoard[currentPlayer.pSquare - 1]]
-  console.log("Board effect: ", currentBoardEffect)
-  console.log("Current Player: ", currentPlayer)
-  console.log("board effect num: ", gameBoard[currentPlayer.pSquare - 1])
+  inDebugMode && console.log("Board effect: ", currentBoardEffect)
+  inDebugMode && console.log("Current Player: ", currentPlayer)
+  inDebugMode && console.log("board effect num: ", gameBoard[currentPlayer.pSquare - 1])
   renderPhaseText(`You rolled a ${sumOfRoll}${(playerRoll.length > 1) ? `(${playerRoll.join(" + ")})`: "" }`,
     `You move forward ${sumOfRoll} space${sumOfRoll > 1 ? "s" : ""}. You are now on square ${currentPlayer.pSquare}`,
-    `${currentBoardEffect.sqMessage}`)
-  console.log(`${currentPlayer.pName} moved forward ${sumOfRoll} squares. They are at square ${currentPlayer.pSquare}`)
+    `${currentBoardEffect.sqMessage}`);
+  inDebugMode && console.log(`${currentPlayer.pName} moved forward ${sumOfRoll} squares. They are at square ${currentPlayer.pSquare}`)
 
   tempResults.push(`${currentPlayer.pName} moved forward ${sumOfRoll} space${sumOfRoll > 1 ? "s" : ""}, landing on a ${currentBoardEffect.sqName}`)
 
 }
 
 function phaseEvent() {
-  console.log(`Event phase activated`)
+  inDebugMode && console.log(`Event phase activated`)
   let currentEvent = boardEffects[gameBoard[currentPlayer.pSquare - 1]]
   let effectResult = currentEvent.sqEffect()
   tempResults.push(`\n${currentPlayer.pName} ${effectResult}\n`)
@@ -65,7 +65,7 @@ function phaseEvent() {
 }
 
 function phaseResolve() {
-  console.log(`Resolve phase activated`)
+  inDebugMode && console.log(`Resolve phase activated`)
   renderPhaseText(tempResults.shift(), tempResults.join("\n"))
   tempResults = []
 }
