@@ -12,6 +12,13 @@ const playerTemp = { // The player template, an object that gets
 }
 
 const winFanfare = new Audio('https://www.myinstants.com/media/sounds/untitled_340.mp3')
+const rollSound = new Audio('https://www.myinstants.com/media/sounds/shake-and-roll-dice-soundbible.mp3')
+const roll1 = new Audio('https://www.myinstants.com/media/sounds/kickthebuddytrashad720x1280mp4bevideotoaudio202106162032061623855873706bemerge202_0HZPFUz.mp3')
+const roll2 = new Audio('https://www.myinstants.com/media/sounds/song-of-double-time.mp3')
+const roll3 = new Audio('https://www.myinstants.com/media/sounds/oh_baby_a_triple.mp3')
+const roll4 = new Audio('../assets/four.mp3')
+const roll5 = new Audio('../assets/five.mp3')
+const roll6 = new Audio('https://www.myinstants.com/media/sounds/sound-effect-they-see-me-rolling-audiotrimmer.mp3')
 
 /* Game Variables */
 
@@ -96,7 +103,16 @@ function rollDice(numDice = 1, sides = 6) {
   for (let i = 0; i < numDice; i++) {
     rolls.push(Math.floor(Math.random() * sides) + 1)
   }
+  rollSound.play()
   let sum = rolls.reduce((sum, roll) => sum + roll, 0)
+  setTimeout(() => {
+    sum === 1 && roll1.play()
+    sum === 2 && roll2.play()
+    sum === 3 && roll3.play()
+    sum === 4 && roll4.play()
+    sum === 5 && roll5.play()
+    sum === 6 && roll6.play()
+  }, rollSound.duration);
   if (numDice != 1 && inDebugMode) console.log(`Results are in: ${rolls.join(" + ")} = ${sum}`)
   rolls.unshift(sum)
   return rolls
@@ -106,7 +122,6 @@ function startPhase() {
   renderPhase()
   turnPhases[currentTurnPhaseIndex]["phaseAction"]()
   renderPlayerStats()
-  renderPlayersBoard()
 }
 // Shifts to next player,
 function nextPlayer() {
